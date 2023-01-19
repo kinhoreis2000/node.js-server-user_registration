@@ -1,0 +1,28 @@
+{
+  "name": "desafio-12-nodejs",
+  "version": "1.0.0",
+  "description": "Esse código é para praticar os conceitos de SQL, NODEJS, framework EXPRESS e integração com KNEX. Nodemoon utilizado e integração com o BEEKEPER e o INSOMNIA",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kinhoreis2000/node.js-server-user_registration.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kinhoreis2000/node.js-server-user_registration/issues"
+  },
+  "homepage": "https://github.com/kinhoreis2000/node.js-server-user_registration#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
