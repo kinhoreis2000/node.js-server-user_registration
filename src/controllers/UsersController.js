@@ -1,5 +1,5 @@
 const AppError = require('../utils/AppError.js')
-const {hash} = require('bcryptjs')
+const {hash, compare} = require('bcryptjs')
 const sqlConnection = require('../database/sqlite')
 class UsersController {
 
@@ -40,19 +40,36 @@ class UsersController {
       throw new AppError('Este email já está em uso ')
     }
 
-    user.name = name 
-    user.email = email
+    user.name = name ?? user.name
+    user.email = email ?? user.email
+    
+
+      if (password && !old_password) {
+        throw new AppError('Você precisa informar a senha antiga para definir a nova ')
+      }
+
+      if(password && old_password) {
+        const checkOldPassword = await compare(String(old_password), String(user.password))
+
+
+        if(!checkOldPassword) {
+          throw new AppError('As senhas não conferem')
+        }
+
+        user.password = await hash(password, 8)
+      }
 
     await database.run(`
       UPDATE users SET 
       name = ?,
       email = ?,
-      updated_at = ?
+      password = ?,
+      updated_at = DATETIME('now')
       WHERE id = ?
     `,[
       user.name,
       user.email,
-      new Date(),
+      user.password,
       id
     ] 
     )
