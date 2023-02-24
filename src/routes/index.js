@@ -13,6 +13,6 @@ const routes = Router()
 routes.use('/users', usersRouter)
 routes.use('/notes',  notesRouter)
 
-routes.use('/sessions', sessionsRoutes)
+routes.use('/sessions',sessionsRoutes)
 
-module.exports = [usersRouter, notesRouter, sessionsRoutes]
+module.exports = [usersRouter, notesRouter, sessionsRoutes ]
