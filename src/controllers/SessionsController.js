@@ -26,7 +26,6 @@ class SessionsControler{
       const token = sign({}, secret,{
         subject:String(user.id),
         expiresIn})
-
       return res.json({user, token})
 
 

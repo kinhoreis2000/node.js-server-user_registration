@@ -8,6 +8,7 @@ class UserAvatarController{
   async update(req, res) {
     const user_id = req.user.id
 
+
     const database = await sqlConnection()
     
     const user = await database.get('SELECT * FROM users WHERE id = (?)', [user_id])
@@ -15,7 +16,6 @@ class UserAvatarController{
     const diskStorage = new DiskStorage()
     
     const avatarFileName = req.file.filename
-
 
     if(!user) {
       throw new AppError('Somente usuários autenticados podem mudar o avatar', 401)
@@ -31,7 +31,6 @@ class UserAvatarController{
 
 
     await database.run('UPDATE users SET avatar = (?) WHERE id = (?)' ,[filename, user.id])
-
     return res.json(user)
     
   }
