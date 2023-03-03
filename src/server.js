@@ -7,6 +7,7 @@ const routes = require('./routes')
 const uploadConfig = require('./configs/upload')
 const migrationsRun = require('./database/sqlite/migrations')
 
+
 app.use(cors())
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');

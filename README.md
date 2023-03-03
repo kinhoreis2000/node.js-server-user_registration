@@ -6,7 +6,7 @@ Esse código é para praticar os conceitos de SQL, NODEJS, framework EXPRESS e i
 - Atualizar dados do usuário 
 - Remover dados do usuário 
 - Visualizar dados do usuário 
-- Métodos PUT, POST, DELETE para tags e notas relacionadas ao usuário  
+- Métodos PUT, POST, DELETE para tags e filmes relacionadas ao usuário  
 
 ### Bibliotecas e frameworks utilizados: 
 - KNEX
